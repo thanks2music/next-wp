@@ -1,0 +1,30 @@
+services:
+   db:
+     platform: linux/x86_64 # for M1/M2/M3 Mac
+     image: mysql:5.7
+     container_name: nwp-db
+     volumes:
+       - nextwp_db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: nextwp
+       MYSQL_USER: nextwp
+       MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - "8002:80"
+     restart: always
+     container_name: nwp
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: nextwp
+       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+       WORDPRESS_DB_NAME: nextwp
+       WORDPRESS_DEBUG: 1 # デバッグモードON
+volumes:
+    nextwp_db_data:
