@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import type { NextPage } from 'next'
 import PostService from '../services/PostService'
 import PostType from '../types/PostType'

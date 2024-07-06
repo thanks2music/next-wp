@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const repository = axios.create({
-    baseURL: 'http://localhost:8000/graphql',
+    baseURL: 'http://localhost:8002/graphql',
     headers: {
         'Content-Type': 'application/json'
     }
