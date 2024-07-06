@@ -1,19 +1,9 @@
+import { WpGraphQlPostConst } from "../constants/WpGraphQlConst";
 import Repository from "./Repository";
 
 class PostRepository {
     static getList() {
-        return Repository(`query PostListQuery {
-            posts {
-              edges {
-                node {
-                  title
-                  id
-                  date
-                  content
-                }
-              }
-            }
-        }`).getWp() // graphQLのIDEのをコピペ
+        return Repository(WpGraphQlPostConst.list).getWp()
     }
 }
 
