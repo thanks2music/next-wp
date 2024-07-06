@@ -1,20 +1,37 @@
 import type { NextPage } from 'next'
-// Post
+// PostType
 import PostType from '../types/PostType'
 // Service
 import PostService from '../services/PostService'
-// hooks
+// Hooks
 import usePostListSwr from '../hooks/swr/usePostListSwr'
+// Component
+import Image from 'next/image'
 
 const Home: NextPage<{
-  staticPostList: PostType[] // 型の指定をする場所に注意！
+  staticPostList: PostType[]
 }> = ({ staticPostList }) => {
-  const postList = usePostListSwr(staticPostList);
-
+  const postList = usePostListSwr(staticPostList)
   return (
-    <div>
+    <div className='flex flex-wrap'>
       {postList!.map((post) => {
-        return <p key={post.id}>{post.title}</p> // 一個ずつ表示させる
+        return (
+          <div key={post.id} className='w-1/3 p-4'>
+            <article className='shadow-sm shadow-gray-200'>
+              <div>
+                <img
+                  className='w-full h-56 object-cover'
+                  src={post.featuredImage.url} /> {/* あとで<Image />に変える */}
+              </div>
+              <div className='py-4 px-5'>
+                <span>{post.category.name}</span>
+                <h1 className='font-bold'>{post.title}</h1>
+                <p>{post.excerpt}</p>
+                <span>{post.date}</span>
+              </div>
+            </article>
+          </div>
+        )
       })}
     </div>
   )
