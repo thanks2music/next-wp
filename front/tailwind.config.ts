@@ -8,14 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       fontFamily: {
-       'body': ['Noto Sans JP', 'sans-serif'],
-     },
+        'body': ['Noto Sans JP', 'sans-serif'],
+      },
+      width: {
+        main: 'clamp(0px, 1050px, 90vw)', // 基本は1050px、画面が小さくなると90vw
+      },
     },
   },
   plugins: [],

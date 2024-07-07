@@ -13,7 +13,7 @@ const Home: NextPage<{
 }> = ({ staticPostList }) => {
   const postList = usePostListSwr(staticPostList)
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap w-main mx-auto'>
       {postList!.map((post) => {
         return (
           <div key={post.id} className='w-1/3 p-4'>
