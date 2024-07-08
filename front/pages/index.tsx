@@ -5,8 +5,8 @@ import PostType from '../types/PostType'
 import PostService from '../services/PostService'
 // Hooks
 import usePostListSwr from '../hooks/swr/usePostListSwr'
-// Component
-import Image from 'next/image'
+// component
+import PostBox from '../components/molecules/PostBox'
 
 const Home: NextPage<{
   staticPostList: PostType[]
@@ -16,20 +16,8 @@ const Home: NextPage<{
     <div className='flex flex-wrap w-main mx-auto'>
       {postList!.map((post) => {
         return (
-          <div key={post.id} className='w-1/3 p-4'>
-            <article className='shadow-sm shadow-gray-200'>
-              <div>
-                <img
-                  className='w-full h-56 object-cover'
-                  src={post.featuredImage.url} /> {/* あとで<Image />に変える */}
-              </div>
-              <div className='py-4 px-5'>
-                <span>{post.category.name}</span>
-                <h1 className='font-bold'>{post.title}</h1>
-                <p>{post.excerpt}</p>
-                <span>{post.date}</span>
-              </div>
-            </article>
+          <div key={post.id} className='w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0'>
+            <PostBox post={post} />
           </div>
         )
       })}
