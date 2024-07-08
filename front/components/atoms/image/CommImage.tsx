@@ -11,9 +11,13 @@ const CommImage = ({ src, alt, className='' }: {
             <Image
                 src={src}
                 alt={alt}
-                layout='fill'
-                objectFit="cover" />
+                fill
+                style={{
+                  objectFit: 'cover',
+                }}
+            />
         </div>
+
     )
 }
 
