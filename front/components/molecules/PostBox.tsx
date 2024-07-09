@@ -1,5 +1,5 @@
 // type
-import PostType from "../../types/PostType"
+import PostOnListType from "../../types/PostOnListType"
 // component
 import CommImage from "../atoms/image/CommImage"
 import CategoryLabel from "../atoms/label/CategoryLabel"
@@ -8,7 +8,7 @@ import DateText from "../atoms/text/DateText"
 import Link from "next/link"
 
 const PostBox = ({ post }: {
-    post: PostType
+    post: PostOnListType
 }) => {
     return (
         <article className='shadow-sm shadow-gray-200'>

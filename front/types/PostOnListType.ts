@@ -1,6 +1,6 @@
 import FeaturedImageType from "./FeaturedImageType"
 import CategoryType from "./CategoryType"
-interface PostType {
+interface PostOnListType {
     id: string
     title: string
     slug: string
@@ -10,4 +10,4 @@ interface PostType {
     category: CategoryType // SEO的にカテゴリーを複数にしないので単数の前提で
 }
 
-export default PostType
+export default PostOnListType
