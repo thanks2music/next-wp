@@ -5,6 +5,7 @@ import CommImage from "../atoms/image/CommImage"
 import CategoryLabel from "../atoms/label/CategoryLabel"
 import ArticleHeading from "../atoms/text/ArticleHeading"
 import DateText from "../atoms/text/DateText"
+import Link from "next/link"
 
 const PostBox = ({ post }: {
     post: PostType
@@ -12,10 +13,12 @@ const PostBox = ({ post }: {
     return (
         <article className='shadow-sm shadow-gray-200'>
             <div>
+              <Link href={`/post/${post.slug}`}>
                 <CommImage 
                     src={post.featuredImage.url}
                     alt=""
                     className="w-full h-56" />
+              </Link>
             </div>
             <div className='py-4 px-5'>
                 <div className="flex mb-2">
