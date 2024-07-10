@@ -30,7 +30,7 @@ const Home: NextPage<{
 }
 
 export async function getStaticProps() {
-  const staticPostList = await PostService.getList(); // postListをとってくる
+  const staticPostList = await PostService.getList({});
   return {
     props: {
       staticPostList
