@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "v1",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
