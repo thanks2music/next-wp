@@ -1,5 +1,5 @@
 interface FeaturedImageType {
-    url: string
+  url: string;
 }
 
-export default FeaturedImageType
+export default FeaturedImageType;

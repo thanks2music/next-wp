@@ -1,42 +1,51 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
 // PostType
-import PostOnListType from '../types/PostOnListType'
+import PostOnListType from "../types/PostOnListType";
 // Service
-import PostService from '../services/PostService'
+import PostService from "../services/PostService";
 // Hooks
-import usePostListSwr from '../hooks/swr/usePostListSwr'
+import usePostListSwr from "../hooks/swr/usePostListSwr";
 // component
-import PostBox from '../components/molecules/PostBox'
-import Link from 'next/link'
-import Layout from '../components/templates/Layout'
+import PostBox from "../components/molecules/PostBox";
+import Link from "next/link";
+import Layout from "../components/templates/Layout";
 
 const Home: NextPage<{
-  staticPostList: PostOnListType[]
+  staticPostList: PostOnListType[];
 }> = ({ staticPostList }) => {
-  const postList = usePostListSwr(staticPostList)
+  // TODO: usePostListSwrでエラーになる
+  // console.log('staticPostListの中身は？');
+  // console.log(staticPostList);
+  // const postList = usePostListSwr(staticPostList);
+  const postList = staticPostList;
+  // console.log('ポストリストの中身は？');
+  // console.log(postList);
   return (
     <Layout>
-      <div className='flex flex-wrap w-main mx-auto'>
+      <div className="flex flex-wrap w-main mx-auto">
         {postList!.map((post) => {
           return (
-            <div key={post.id} className='w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0'>
+            <div
+              key={post.id}
+              className="w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0"
+            >
               <PostBox post={post} />
             </div>
-          )
+          );
         })}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps() {
   const staticPostList = await PostService.getList({});
   return {
     props: {
-      staticPostList
+      staticPostList,
     },
-    revalidate: 10
-  }
+    revalidate: 10,
+  };
 }
 
-export default Home
+export default Home;
