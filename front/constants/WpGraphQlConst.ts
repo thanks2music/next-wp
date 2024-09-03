@@ -1,6 +1,6 @@
 export class WpGraphQlPostConst {
-    // 同じこと2回書かないために共通部分をまとめる
-    private static _itemsOnList = `
+  // 同じこと2回書かないために共通部分をまとめる
+  private static _itemsOnList = `
       categories {
         edges {
           node {
@@ -18,10 +18,10 @@ export class WpGraphQlPostConst {
       }
       id
       slug
-      title`
+      title`;
 
-    // 同じくこちらもまとめておく
-    private static _itemsOnOne = `
+  // 同じくこちらもまとめておく
+  private static _itemsOnOne = `
       categories {
         edges {
           node {
@@ -39,9 +39,9 @@ export class WpGraphQlPostConst {
       }
       id
       slug
-      title`
+      title`;
 
-    static list = `query PostListQuery {
+  static list = `query PostListQuery {
       posts {
         edges {
           node {
@@ -49,10 +49,10 @@ export class WpGraphQlPostConst {
           }
         }
       }
-    }`
+    }`;
 
-    // 特定のカテゴリーの記事一覧取得
-    static listByCategory = `query PostListByCategoryQuery($categoryId: Int!) {
+  // 特定のカテゴリーの記事一覧取得
+  static listByCategory = `query PostListByCategoryQuery($categoryId: Int!) {
       posts(where: {categoryId: $categoryId}) {
         edges {
           node {
@@ -60,15 +60,15 @@ export class WpGraphQlPostConst {
           }
         }
       }
-    }`
+    }`;
 
-    static one = `query PostQuery($id: ID!) {
+  static one = `query PostQuery($id: ID!) {
       post(id: $id, idType: SLUG) {
         ${this._itemsOnOne}
       }
-    }`
+    }`;
 
-    static allSlugList = `query PostAllSlugListQuery {
+  static allSlugList = `query PostAllSlugListQuery {
       posts(first: 10000) {
         edges {
           node {
@@ -76,10 +76,10 @@ export class WpGraphQlPostConst {
           }
         }
       }
-    }`
+    }`;
 
-    // 全カテゴリーのスラッグを取得
-    static allCategorySlugList = `query PostAllCategorySlugListQuery {
+  // 全カテゴリーのスラッグを取得
+  static allCategorySlugList = `query PostAllCategorySlugListQuery {
       categories {
         edges {
           node {
@@ -87,12 +87,12 @@ export class WpGraphQlPostConst {
           }
         }
       }
-    }`
+    }`;
 
-    // スラッグからカテゴリーIDを取得する
-    static categoryIdBySlug = `query PostCategoryIdBySlugQuery($id: ID!) {
+  // スラッグからカテゴリーIDを取得する
+  static categoryIdBySlug = `query PostCategoryIdBySlugQuery($id: ID!) {
       category(id: $id, idType: SLUG) {
         categoryId
       }
-    }`
+    }`;
 }
