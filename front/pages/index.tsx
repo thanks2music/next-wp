@@ -13,13 +13,7 @@ import Layout from "../components/templates/Layout";
 const Home: NextPage<{
   staticPostList: PostOnListType[];
 }> = ({ staticPostList }) => {
-  // TODO: usePostListSwrでエラーになる
-  // console.log('staticPostListの中身は？');
-  // console.log(staticPostList);
-  // const postList = usePostListSwr(staticPostList);
-  const postList = staticPostList;
-  // console.log('ポストリストの中身は？');
-  // console.log(postList);
+  const postList = usePostListSwr({ staticPostList });
   return (
     <Layout>
       <div className="flex flex-wrap w-main mx-auto">
