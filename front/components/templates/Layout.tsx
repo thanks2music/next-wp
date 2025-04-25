@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "../organisms/Header";
 import Footer from "../organisms/Footer";
 import { ReactNode } from "react";

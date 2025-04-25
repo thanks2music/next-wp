@@ -1,3 +1,5 @@
+"use client";
+
 // type
 import PostOnListType from "../../types/PostOnListType";
 // component
