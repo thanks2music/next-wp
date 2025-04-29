@@ -1,5 +1,6 @@
-interface FeaturedImageType {
-  url: string;
+interface CategoryType {
+  slug: string;
+  name: string;
 }
 
-export default FeaturedImageType;
+export default CategoryType;

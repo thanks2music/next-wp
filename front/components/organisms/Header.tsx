@@ -1,3 +1,5 @@
+"use client";
+
 import { Fragment } from "react";
 import Link from "next/link";
 // requires Tailwind CSS v2.0+

@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 
 const ArticleOnListHeading = ({ children }: { children: ReactNode }) => {
